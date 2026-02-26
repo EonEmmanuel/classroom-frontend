@@ -5,21 +5,19 @@ import {useBack} from "@refinedev/core";
 import {Separator} from "@/components/ui/separator.tsx";
 import {Card, CardContent, CardHeader, CardTitle} from "@/components/ui/card.tsx"
 import { zodResolver } from "@hookform/resolvers/zod"
-import { useForm } from "react-hook-form"
+import {useForm} from "@refinedev/react-hook-form";
 import {classSchema} from "@/lib/schema.ts";
 import * as z from "zod";
 
 import {
     Form,
     FormControl,
-    FormDescription,
     FormField,
     FormItem,
     FormLabel,
     FormMessage,
 } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
-import {Label} from "@/components/ui/label.tsx";
 import {Select, SelectContent, SelectItem, SelectTrigger, SelectValue} from "@/components/ui/select.tsx";
 import {Textarea} from "@/components/ui/textarea.tsx";
 import {Loader2} from "lucide-react";
@@ -77,7 +75,7 @@ const Create = () => {
 
     const bannerPublicId = form.watch('bannerCldPubId');
 
-    const setBannerImage = (file, field) => {
+    const setBannerImage = (file: any, field: any) => {
         if(file) {
             field.onChange(file.url);
             form.setValue('bannerCldPubId', file.publicId, {
@@ -128,16 +126,14 @@ const Create = () => {
                                             </span> </FormLabel>
                                             <FormControl>
                                                 <UploadWidget
-                                                    value={field.value ? { url:
-                                                    field.value, publicId: bannerPublicId ?? '' } : null}
-                                                    onChange={(file: any, field: any)=>
-                                                        setBannerImage(file, field)}
-                                                />
+                                                value={field.value ? { url: field.value, publicId: bannerPublicId ?? "" } : null}
+                                                onChange={(file: any) => setBannerImage(file, field)}
+                                                 />
                                             </FormControl>
                                             <FormMessage />
-                                            {errors.bannerCldpubId && !errors.bannerUrl && (
+                                            {errors.bannerCldPubId && !errors.bannerUrl && (
                                                 <p className="text-destructive text-sm">
-                                                    {errors.bannerCldpubId.message ?. toString()}
+                                                    {errors.bannerCldPubId.message ?. toString()}
                                                 </p>
                                                 )
                                             }

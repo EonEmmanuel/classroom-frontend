@@ -42,13 +42,13 @@ function App() {
                       meta: { label: 'Home', icon: <Home />}
                   },
                   {
-                      name: 'Subjects',
+                      name: 'subjects',
                       list: '/subjects',
                       create: '/subjects/create',
                       meta: {label: 'Subjects', icon: <BookOpen/>}
                   },
                   {
-                      name: 'Classes',
+                      name: 'classes',
                       list: '/classes',
                       create: '/classes/create',
                       meta: {label: 'Classes', icon: <GraduationCap />}
